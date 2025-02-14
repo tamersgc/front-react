@@ -1,3 +1,28 @@
-body{
-    background-color: aqua;
+#main{
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+}
+
+#entrada{
+    margin-top: 40px;
+    text-align: center;
+}
+
+th,td{
+    padding: 20px;
+}
+
+thead{
+    color: aliceblue;
+    background-color: rgb(83, 83, 87);
+    text-align: left;
+}
+
+table{
+    border-collapse: collapse;
+    background-color: rgb(244, 243, 243);
+    margin-top: 40px;
+    width: 100%;
+
 }
