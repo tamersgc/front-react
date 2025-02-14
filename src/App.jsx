@@ -9,12 +9,12 @@ function App() {
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [alunos, setAlunos] = useState("")
+  const [teste, setTeste] = useState("")
 
 
   useEffect(() => {
     async function listarAlunos() {
       const response = await api.get("/alunos")
-      console.log(response.data)
       setAlunos(response.data)
     }
 
@@ -30,6 +30,13 @@ function App() {
 
 
   }
+
+  async function deleteRow(e, id) {
+    await api.delete("/alunos/" + id)
+
+    console.log(id)
+  }
+
 
   return (
     <>
@@ -57,17 +64,15 @@ function App() {
               </tr>
             </thead>
 
-            <tbody>
-              {
-                alunos && alunos.map(aluno => (
-                  <tr>
-                    <td>{aluno.nome}</td>
-                    <td>{aluno.email}</td>
-                    <td><button>Remover</button></td>
-                  </tr>
-                ))
-              }
-            </tbody>
+            <tbody>{
+              alunos && alunos.map(aluno => (
+                <tr key={aluno.id}>
+                  <td>{aluno.nome}</td>
+                  <td>{aluno.email}</td>
+                  <td><button onClick={(e) => deleteRow(e, aluno.id)} >Remover</button></td>
+                </tr>
+              ))
+            }</tbody>
 
 
           </table>
