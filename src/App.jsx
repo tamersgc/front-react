@@ -9,7 +9,6 @@ function App() {
   const [nome, setNome] = useState("")
   const [email, setEmail] = useState("")
   const [alunos, setAlunos] = useState("")
-  const [teste, setTeste] = useState("")
 
 
   useEffect(() => {
